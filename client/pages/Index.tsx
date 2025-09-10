@@ -129,6 +129,9 @@ function Programs() {
           {features.map((f, idx) => (
             <motion.div
               key={f.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 300, damping: 18 }}
               className="group rounded-2xl border border-border bg-white p-5 shadow-sm hover:shadow-md"
