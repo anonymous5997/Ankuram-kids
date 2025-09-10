@@ -3,21 +3,31 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SplashScreen from "@/components/branding/SplashScreen";
 
-const navItems = [
-  { to: "/about", label: "About" },
-  { to: "/programs", label: "Programs" },
-  { to: "/co-curricular", label: "Co-curricular" },
-  { to: "/facilities", label: "Facilities" },
-  { to: "/life-at-ankuram", label: "Life at Ankuram" },
-  { to: "/admissions", label: "Admissions" },
-  { to: "/ntt-training", label: "NTT Training" },
-  { to: "/franchise", label: "Franchise" },
-  { to: "/media-gallery", label: "Media" },
-  { to: "/testimonials", label: "Testimonials" },
-  { to: "/blog", label: "Blog" },
-  { to: "/careers", label: "Careers" },
-  { to: "/faqs", label: "FAQs" },
-  { to: "/contact", label: "Contact" },
+const navModel = [
+  {
+    label: "About Us",
+    to: "/about",
+    submenu: [
+      { label: "Ankuram Kids Preschool", to: "/about" },
+      { label: "Life at Ankuram", to: "/life-at-ankuram" },
+      { label: "Leadership Team", to: "/leadership-team" },
+      { label: "Corporate Tie-ups", to: "/corporate-tieups" },
+    ],
+  },
+  { label: "Curriculum", to: "/curriculum" },
+  { label: "Onsite Daycare", to: "/onsite-daycare" },
+  {
+    label: "Admissions",
+    to: "/admissions",
+    submenu: [
+      { label: "Admission Details", to: "/admissions" },
+      { label: "Centre Locator", to: "/centre-locator" },
+      { label: "FAQ's", to: "/faqs" },
+    ],
+  },
+  { label: "Franchise", to: "/franchise" },
+  { label: "NTT Training", to: "/ntt-training" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 export default function Layout() {
@@ -63,19 +73,32 @@ export default function Layout() {
                 <div className="text-lg font-extrabold font-display tracking-tight">ANKURAM KIDS</div>
               </div>
             </Link>
-            <nav className="hidden lg:flex items-center gap-1">
-              {navItems.map((n) => (
-                <NavLink
-                  key={n.to}
-                  to={n.to}
-                  className={({ isActive }) =>
-                    `nav-link px-3 py-2 rounded-full text-sm font-semibold transition-colors ${
-                      isActive ? "bg-primary/10 text-primary" : "hover:bg-slate-100"
-                    }`
-                  }
-                >
-                  {n.label}
-                </NavLink>
+            <nav className="hidden lg:flex items-center gap-2">
+              {navModel.map((item) => (
+                <div key={item.label} className="relative group">
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `nav-link px-3 py-2 rounded-full text-[15px] font-semibold transition-colors ${
+                        isActive ? "bg-primary/10 text-primary" : "hover:bg-slate-100"
+                      }`
+                    }
+                  >
+                    <span className="uppercase tracking-wide">{item.label}</span>
+                    {item.submenu && (
+                      <svg className="ml-1 inline-block h-3 w-3 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+                    )}
+                  </NavLink>
+                  {item.submenu && (
+                    <div className="absolute left-0 top-full hidden min-w-[240px] translate-y-1 rounded-xl border border-border bg-white p-2 shadow-xl group-hover:block">
+                      {item.submenu.map((s) => (
+                        <NavLink key={s.to} to={s.to} className={({ isActive }) => `block rounded-md px-4 py-2 text-sm ${isActive ? 'bg-primary/10 text-primary' : 'hover:bg-slate-100'}`}>
+                          {s.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
             <div className="flex items-center gap-3">
@@ -90,19 +113,27 @@ export default function Layout() {
             </div>
           </div>
           {mobileOpen && (
-            <div className="lg:hidden pb-3 flex flex-wrap gap-2">
-              {navItems.map((n) => (
-                <NavLink
-                  key={n.to}
-                  to={n.to}
-                  className={({ isActive }) =>
-                    `px-3 py-2 rounded-full text-sm font-semibold transition-colors ${
-                      isActive ? "bg-primary/10 text-primary" : "hover:bg-slate-100"
-                    }`
-                  }
-                >
-                  {n.label}
-                </NavLink>
+            <div className="lg:hidden pb-3 grid gap-2">
+              {navModel.map((n) => (
+                <div key={n.label} className="">
+                  <NavLink
+                    to={n.to}
+                    className={({ isActive }) =>
+                      `block px-3 py-2 rounded-lg text-sm font-semibold ${isActive ? 'bg-primary/10 text-primary' : 'hover:bg-slate-100'}`
+                    }
+                  >
+                    {n.label}
+                  </NavLink>
+                  {n.submenu && (
+                    <div className="ml-3 mt-1 grid gap-1">
+                      {n.submenu.map((s) => (
+                        <NavLink key={s.to} to={s.to} className={({ isActive }) => `block px-3 py-1.5 rounded-md text-sm ${isActive ? 'bg-primary/10 text-primary' : 'hover:bg-slate-100'}`}>
+                          {s.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           )}
