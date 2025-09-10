@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2D9CDB"/>
+      <stop offset="50%" stop-color="#6C63FF"/>
+      <stop offset="100%" stop-color="#9B5DE5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <circle cx="950" cy="120" r="90" fill="#FFB703" opacity="0.2"/>
+  <circle cx="240" cy="520" r="120" fill="#2D9CDB" opacity="0.08"/>
+  <text x="80" y="200" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="64" fill="#1f2937">ANKURAM KIDS Pre-school</text>
+  <text x="80" y="260" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="48" fill="url(#g)">Where Little Minds Grow Big Dreams</text>
+  <text x="80" y="320" font-family="Lato, Arial, sans-serif" font-weight="400" font-size="28" fill="#334155">#1 Kids School in Odisha • Admissions Open</text>
+</svg>
