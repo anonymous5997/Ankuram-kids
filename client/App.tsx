@@ -27,17 +27,16 @@ const App = () => (
             <Route index element={<Index />} />
             <Route path="about" element={<About />} />
             <Route path="programs" element={<Placeholder title="Our Programs" />} />
-            <Route path="co-curricular" element={<Placeholder title="Co-curricular" />} />
-            <Route path="facilities" element={<Placeholder title="Campus Facilities" />} />
+            <Route path="curriculum" element={<Placeholder title="Curriculum" />} />
+            <Route path="onsite-daycare" element={<Placeholder title="Onsite Daycare" />} />
             <Route path="life-at-ankuram" element={<Placeholder title="Life at Ankuram Kids" />} />
+            <Route path="leadership-team" element={<Placeholder title="Leadership Team" />} />
+            <Route path="corporate-tieups" element={<Placeholder title="Corporate Tie-ups" />} />
             <Route path="admissions" element={<Admissions />} />
-            <Route path="media-gallery" element={<Placeholder title="Media Gallery" />} />
+            <Route path="centre-locator" element={<Placeholder title="Centre Locator" />} />
             <Route path="ntt-training" element={<Placeholder title="NTT Training" />} />
             <Route path="franchise" element={<Placeholder title="Franchise Opportunities" />} />
             <Route path="contact" element={<Placeholder title="Contact Us" />} />
-            <Route path="testimonials" element={<Placeholder title="Testimonials" />} />
-            <Route path="blog" element={<Placeholder title="Blog & Articles" />} />
-            <Route path="careers" element={<Placeholder title="Career Opportunities" />} />
             <Route path="faqs" element={<Placeholder title="FAQs" />} />
           </Route>
           <Route path="*" element={<NotFound />} />
