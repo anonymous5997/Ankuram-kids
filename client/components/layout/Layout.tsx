@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import SplashScreen from "@/components/branding/SplashScreen";
 
 const navItems = [
@@ -22,6 +23,7 @@ const navItems = [
 export default function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -40,14 +42,21 @@ export default function Layout() {
     }
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 6);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       {showSplash && <SplashScreen />}
-      <header className="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-border">
+      <header className={`sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-border transition-shadow ${scrolled ? "shadow-sm" : "shadow-none"}`}>
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/ankuram-favicon.svg" alt="Ankuram Kids" className="h-9 w-9" />
+              <img src="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fd3d4d84ad92947b08a3d91411fd8a979?format=webp&width=160" alt="Ankuram Kids" className="h-9 w-auto logo-glow" />
               <div className="leading-tight">
                 <div className="text-lg font-extrabold font-display tracking-tight">ANKURAM KIDS</div>
                 <div className="text-[11px] text-slate-500">A unit of Ekagrata Shiksha Foundation</div>
@@ -59,7 +68,7 @@ export default function Layout() {
                   key={n.to}
                   to={n.to}
                   className={({ isActive }) =>
-                    `px-3 py-2 rounded-full text-sm font-semibold transition-colors ${
+                    `nav-link px-3 py-2 rounded-full text-sm font-semibold transition-colors ${
                       isActive ? "bg-primary/10 text-primary" : "hover:bg-slate-100"
                     }`
                   }
@@ -99,7 +108,11 @@ export default function Layout() {
         </div>
       </header>
       <main className="flex-1">
-        <Outlet />
+        <AnimatePresence mode="wait">
+          <motion.div key={location.pathname} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
       <footer className="mt-16 bg-slate-50 border-t border-border">
         <div className="container mx-auto px-4 py-10 grid gap-8 md:grid-cols-4">
@@ -136,7 +149,7 @@ export default function Layout() {
         <div className="border-t border-border py-4 text-center text-xs text-slate-500">© {new Date().getFullYear()} ANKURAM KIDS. All rights reserved.</div>
       </footer>
 
-      <Link to="/admissions" className="fixed bottom-5 right-5 btn-gradient shadow-xl text-sm font-bold">Apply Now</Link>
+      <Link to="/admissions" className="fixed bottom-5 right-5 btn-gradient shadow-xl text-sm font-bold animate-[float_6s_ease-in-out_infinite]">Apply Now</Link>
     </div>
   );
 }
