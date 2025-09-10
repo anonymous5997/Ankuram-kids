@@ -51,8 +51,19 @@ function Hero() {
               className="relative mx-auto w-full max-w-[520px] aspect-[4/3] rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur ring-1 ring-border overflow-hidden"
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.1 }}
             >
-              <div className="absolute inset-0 grid place-items-center">
-                <KidsIllustration />
+              <div className="absolute inset-0">
+                <video
+                  className="h-full w-full object-cover brightness-[.8] saturate-110"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Happy preschoolers learning in classroom"
+                >
+                  <source src="https://videos.pexels.com/video-files/8088526/8088526-sd_426_240_30fps.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-slate-900/15" />
               </div>
             </motion.div>
             <motion.div className="absolute -top-4 -left-6 hidden md:block" animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
