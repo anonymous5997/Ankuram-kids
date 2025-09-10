@@ -161,7 +161,7 @@ export default function Layout() {
           <div>
             <div className="font-semibold mb-2">Quick Links</div>
             <ul className="space-y-2 text-sm">
-              {navItems.slice(0,6).map(n => (<li key={n.to}><Link className="hover:text-primary" to={n.to}>{n.label}</Link></li>))}
+              {navModel.slice(0,6).map((n) => (<li key={n.to}><Link className="hover:text-primary" to={n.to}>{n.label}</Link></li>))}
             </ul>
           </div>
           <div>
