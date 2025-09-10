@@ -25,6 +25,14 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
         <AnimatedShapes />
       </div>
+      <motion.img
+        src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        alt="Happy classroom"
+        className="absolute inset-y-0 left-0 -z-10 h-full w-1/2 object-cover opacity-20 blur-[1px]"
+        initial={{ scale: 1.05 }}
+        animate={{ scale: [1.05, 1.1, 1.05] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <div className="container mx-auto px-4 pt-16 pb-20 md:pb-28">
         <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -33,11 +41,14 @@ function Hero() {
               <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-primary shadow ring-1 ring-primary/20">
                 #1 Kids School in Odisha
               </div>
-              <h1 className="mt-4 text-4xl md:text-6xl font-extrabold font-display leading-[1.05] tracking-tight">
+              <motion.h1 className="mt-4 text-4xl md:text-6xl font-extrabold font-display leading-[1.05] tracking-tight"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
                 <span className="headline-gradient">Where Little Minds</span>
                 <br />
                 <span className="text-slate-800">Grow Big Dreams</span>
-              </h1>
+              </motion.h1>
               <p className="mt-4 text-lg text-slate-600 max-w-xl">A modern, colorful preschool experience with expert educators, engaging activities, and a safe, joyful campus.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link to="/admissions" className="btn-gradient text-base font-bold">Apply Now</Link>
