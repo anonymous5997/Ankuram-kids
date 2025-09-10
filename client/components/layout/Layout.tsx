@@ -31,13 +31,15 @@ export default function Layout() {
   }, [location.pathname]);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const force = params.get("splash") === "1";
     const seen = localStorage.getItem("ankuram_splash_shown");
-    if (!seen) {
+    if (force || !seen) {
       setShowSplash(true);
       const id = setTimeout(() => {
         setShowSplash(false);
-        localStorage.setItem("ankuram_splash_shown", "1");
-      }, 2600);
+        if (!force) localStorage.setItem("ankuram_splash_shown", "1");
+      }, 2200);
       return () => clearTimeout(id);
     }
   }, []);
