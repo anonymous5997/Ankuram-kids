@@ -61,7 +61,6 @@ export default function Layout() {
               <img src="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fd3d4d84ad92947b08a3d91411fd8a979?format=webp&width=220" alt="Ankuram Kids" className="h-10 md:h-12 w-auto logo-glow" />
               <div className="leading-tight">
                 <div className="text-lg font-extrabold font-display tracking-tight">ANKURAM KIDS</div>
-                <div className="text-[11px] text-slate-500">A unit of Ekagrata Shiksha Foundation</div>
               </div>
             </Link>
             <nav className="hidden lg:flex items-center gap-1">
