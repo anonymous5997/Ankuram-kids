@@ -75,8 +75,11 @@ const App = () => (
 );
 
 const container = document.getElementById("root")!;
-const existing = (window as any).__ankuram_root as ReturnType<typeof createRoot> | undefined;
-const root = existing ?? ((window as any).__ankuram_root = createRoot(container));
+const existing = (window as any).__ankuram_root as
+  | ReturnType<typeof createRoot>
+  | undefined;
+const root =
+  existing ?? ((window as any).__ankuram_root = createRoot(container));
 root.render(<App />);
 
 if (import.meta && (import.meta as any).hot) {

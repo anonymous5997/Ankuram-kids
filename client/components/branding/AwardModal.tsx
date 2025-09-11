@@ -12,7 +12,14 @@ export interface AwardModalProps {
   supporting?: string;
 }
 
-export default function AwardModal({ open, onClose, imageSrc, heading = "Odishaâ€™s No. 1 School", subheading = "Times School Ranking Survey Odisha 2023", supporting = "Awarded for the 4th Consecutive Year by TIMES OF INDIA" }: AwardModalProps) {
+export default function AwardModal({
+  open,
+  onClose,
+  imageSrc,
+  heading = "Odishaâ€™s No. 1 School",
+  subheading = "Times School Ranking Survey Odisha 2023",
+  supporting = "Awarded for the 4th Consecutive Year by TIMES OF INDIA",
+}: AwardModalProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const prevFocus = useRef<Element | null>(null);
 
@@ -66,10 +73,18 @@ export default function AwardModal({ open, onClose, imageSrc, heading = "Odishaâ
               </button>
               <div className="px-6 pb-6 pt-12 text-center md:px-10 md:pt-14">
                 {imageSrc ? (
-                  <img src={imageSrc} alt="Award Trophy" className="mx-auto w-[72%] max-w-[360px] rounded-xl shadow-[0_0_60px_rgba(251,191,36,.25)] ring-1 ring-white/10" />
+                  <img
+                    src={imageSrc}
+                    alt="Award Trophy"
+                    className="mx-auto w-[72%] max-w-[360px] rounded-xl shadow-[0_0_60px_rgba(251,191,36,.25)] ring-1 ring-white/10"
+                  />
                 ) : (
                   <div className="mx-auto grid place-items-center w-[72%] max-w-[360px]">
-                    <svg viewBox="0 0 200 240" className="w-full drop-shadow-[0_0_40px_rgba(251,191,36,.4)]" aria-label="Number One">
+                    <svg
+                      viewBox="0 0 200 240"
+                      className="w-full drop-shadow-[0_0_40px_rgba(251,191,36,.4)]"
+                      aria-label="Number One"
+                    >
                       <defs>
                         <linearGradient id="gold" x1="0" x2="1">
                           <stop offset="0%" stopColor="#FDE68A" />
@@ -77,16 +92,36 @@ export default function AwardModal({ open, onClose, imageSrc, heading = "Odishaâ
                           <stop offset="100%" stopColor="#F59E0B" />
                         </linearGradient>
                       </defs>
-                      <rect x="40" y="190" width="120" height="18" rx="9" fill="#D1A54C" opacity="0.25" />
-                      <path d="M110 190V40l-28 18v-22l36-22h12v176h-20z" fill="url(#gold)" stroke="#F59E0B" strokeWidth="2" />
+                      <rect
+                        x="40"
+                        y="190"
+                        width="120"
+                        height="18"
+                        rx="9"
+                        fill="#D1A54C"
+                        opacity="0.25"
+                      />
+                      <path
+                        d="M110 190V40l-28 18v-22l36-22h12v176h-20z"
+                        fill="url(#gold)"
+                        stroke="#F59E0B"
+                        strokeWidth="2"
+                      />
                     </svg>
                   </div>
                 )}
                 <EmphasizedHeading text={heading} />
-                <div className="mt-1 text-[#FBBF24] font-semibold">{subheading}</div>
-                <p id="award-desc" className="mt-2 text-sm md:text-base text-white/80">
+                <div className="mt-1 text-[#FBBF24] font-semibold">
+                  {subheading}
+                </div>
+                <p
+                  id="award-desc"
+                  className="mt-2 text-sm md:text-base text-white/80"
+                >
                   {supporting.split("TIMES OF INDIA")[0]}
-                  <span className="text-red-400 font-semibold">TIMES OF INDIA</span>
+                  <span className="text-red-400 font-semibold">
+                    TIMES OF INDIA
+                  </span>
                   {supporting.includes("TIMES OF INDIA") ? "" : null}
                 </p>
               </div>
