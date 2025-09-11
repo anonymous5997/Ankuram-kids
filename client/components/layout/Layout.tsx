@@ -62,6 +62,16 @@ export default function Layout() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const forceAward = params.get("award") === "1";
+    const shown = sessionStorage.getItem("ankuram_award_shown");
+    if ((location.pathname === "/" && !shown) || forceAward) {
+      const id = setTimeout(() => setAwardOpen(true), 600);
+      return () => clearTimeout(id);
+    }
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen flex flex-col">
       {showSplash && <SplashScreen />}
