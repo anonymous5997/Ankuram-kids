@@ -11,6 +11,7 @@ import Layout from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Admissions from "./pages/Admissions";
+import Franchise from "./pages/Franchise";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
@@ -35,7 +36,7 @@ const App = () => (
             <Route path="admissions" element={<Admissions />} />
             <Route path="centre-locator" element={<Placeholder title="Centre Locator" />} />
             <Route path="ntt-training" element={<Placeholder title="NTT Training" />} />
-            <Route path="franchise" element={<Placeholder title="Franchise Opportunities" />} />
+            <Route path="franchise" element={<Franchise />} />
             <Route path="contact" element={<Placeholder title="Contact Us" />} />
             <Route path="faqs" element={<Placeholder title="FAQs" />} />
           </Route>
