@@ -11,7 +11,7 @@ const features = [
 export default function Index() {
   return (
     <div className="relative">
-      <Hero />
+      <HeroCarousel />
       <Programs />
       <LeadStrip />
     </div>
