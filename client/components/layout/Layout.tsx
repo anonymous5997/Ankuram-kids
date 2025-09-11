@@ -80,7 +80,7 @@ export default function Layout() {
         <AwardModal
           open={awardOpen}
           onClose={() => { setAwardOpen(false); sessionStorage.setItem("ankuram_award_shown", "1"); }}
-          imageSrc="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fc33be33aaf9a474e8919135a251dd5d3?format=webp&width=800"
+          imageSrc=""
         />
       )}
       <header className={`sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-border transition-shadow ${scrolled ? "shadow-sm" : "shadow-none"}`}>
