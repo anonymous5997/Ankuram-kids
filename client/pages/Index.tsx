@@ -49,12 +49,6 @@ function KidsIllustration() {
   );
 }
 
-function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-slate-700 shadow ring-1 ring-border">{children}</div>
-  );
-}
-
 function AnimatedShapes() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
