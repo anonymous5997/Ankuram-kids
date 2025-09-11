@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import HeroCarousel from "@/components/sections/HeroCarousel";
 
 const features = [
   { title: "Pre-Nursery", desc: "Foundational play-based learning.", icon: "🧩", to: "/programs" },
