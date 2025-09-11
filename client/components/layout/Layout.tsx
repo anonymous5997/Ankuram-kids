@@ -2,6 +2,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SplashScreen from "@/components/branding/SplashScreen";
+import AwardModal from "@/components/branding/AwardModal";
 
 const navModel = [
   {
@@ -75,6 +76,13 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       {showSplash && <SplashScreen />}
+      {awardOpen && (
+        <AwardModal
+          open={awardOpen}
+          onClose={() => { setAwardOpen(false); sessionStorage.setItem("ankuram_award_shown", "1"); }}
+          imageSrc="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fc33be33aaf9a474e8919135a251dd5d3?format=webp&width=800"
+        />
+      )}
       <header className={`sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-border transition-shadow ${scrolled ? "shadow-sm" : "shadow-none"}`}>
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
