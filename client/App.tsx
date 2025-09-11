@@ -27,17 +27,44 @@ const App = () => (
           <Route path="/" element={<Layout />}>
             <Route index element={<Index />} />
             <Route path="about" element={<About />} />
-            <Route path="programs" element={<Placeholder title="Our Programs" />} />
-            <Route path="curriculum" element={<Placeholder title="Curriculum" />} />
-            <Route path="onsite-daycare" element={<Placeholder title="Onsite Daycare" />} />
-            <Route path="life-at-ankuram" element={<Placeholder title="Life at Ankuram Kids" />} />
-            <Route path="leadership-team" element={<Placeholder title="Leadership Team" />} />
-            <Route path="corporate-tieups" element={<Placeholder title="Corporate Tie-ups" />} />
+            <Route
+              path="programs"
+              element={<Placeholder title="Our Programs" />}
+            />
+            <Route
+              path="curriculum"
+              element={<Placeholder title="Curriculum" />}
+            />
+            <Route
+              path="onsite-daycare"
+              element={<Placeholder title="Onsite Daycare" />}
+            />
+            <Route
+              path="life-at-ankuram"
+              element={<Placeholder title="Life at Ankuram Kids" />}
+            />
+            <Route
+              path="leadership-team"
+              element={<Placeholder title="Leadership Team" />}
+            />
+            <Route
+              path="corporate-tieups"
+              element={<Placeholder title="Corporate Tie-ups" />}
+            />
             <Route path="admissions" element={<Admissions />} />
-            <Route path="centre-locator" element={<Placeholder title="Centre Locator" />} />
-            <Route path="ntt-training" element={<Placeholder title="NTT Training" />} />
+            <Route
+              path="centre-locator"
+              element={<Placeholder title="Centre Locator" />}
+            />
+            <Route
+              path="ntt-training"
+              element={<Placeholder title="NTT Training" />}
+            />
             <Route path="franchise" element={<Franchise />} />
-            <Route path="contact" element={<Placeholder title="Contact Us" />} />
+            <Route
+              path="contact"
+              element={<Placeholder title="Contact Us" />}
+            />
             <Route path="faqs" element={<Placeholder title="FAQs" />} />
           </Route>
           <Route path="*" element={<NotFound />} />

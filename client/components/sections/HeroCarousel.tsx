@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  animate,
+} from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -27,7 +32,15 @@ function useCount(to: number, duration = 1.2) {
   return val;
 }
 
-function CountBubble({ value, label, delay = 0 }: { value: number; label: string; delay?: number }) {
+function CountBubble({
+  value,
+  label,
+  delay = 0,
+}: {
+  value: number;
+  label: string;
+  delay?: number;
+}) {
   const displayed = useCount(value);
   return (
     <motion.div
@@ -45,16 +58,25 @@ function CountBubble({ value, label, delay = 0 }: { value: number; label: string
 
 function MascotSwing() {
   return (
-    <motion.svg viewBox="0 0 200 200" className="w-[80%] max-w-[420px]" initial={{ rotate: -4 }} animate={{ rotate: [ -6, 6, -6 ] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
+    <motion.svg
+      viewBox="0 0 200 200"
+      className="w-[80%] max-w-[420px]"
+      initial={{ rotate: -4 }}
+      animate={{ rotate: [-6, 6, -6] }}
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+    >
       <defs>
-        <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stopColor="#2D9CDB"/><stop offset="100%" stopColor="#9B5DE5"/></linearGradient>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0%" stopColor="#2D9CDB" />
+          <stop offset="100%" stopColor="#9B5DE5" />
+        </linearGradient>
       </defs>
       <g>
-        <path d="M100 20 v30" stroke="#444" strokeWidth="3"/>
+        <path d="M100 20 v30" stroke="#444" strokeWidth="3" />
         <g>
-          <circle cx="100" cy="60" r="22" fill="#FFD6E7"/>
-          <rect x="70" y="80" width="60" height="44" rx="10" fill="url(#g1)"/>
-          <rect x="80" y="124" width="40" height="36" rx="10" fill="#FFB703"/>
+          <circle cx="100" cy="60" r="22" fill="#FFD6E7" />
+          <rect x="70" y="80" width="60" height="44" rx="10" fill="url(#g1)" />
+          <rect x="80" y="124" width="40" height="36" rx="10" fill="#FFB703" />
         </g>
       </g>
     </motion.svg>
@@ -63,10 +85,26 @@ function MascotSwing() {
 
 function MascotKite() {
   return (
-    <motion.svg viewBox="0 0 240 200" className="w-[80%] max-w-[420px]" initial={{ y: 0 }} animate={{ y: [0, -10, 0] }} transition={{ duration: 3.5, repeat: Infinity }}>
-      <polygon points="120,30 180,90 120,150 60,90" fill="#FFB703" stroke="#F59E0B" strokeWidth="4"/>
-      <polyline points="120,150 110,170 100,160 90,175 80,165" fill="none" stroke="#2D9CDB" strokeWidth="4"/>
-      <circle cx="60" cy="90" r="6" fill="#9B5DE5"/>
+    <motion.svg
+      viewBox="0 0 240 200"
+      className="w-[80%] max-w-[420px]"
+      initial={{ y: 0 }}
+      animate={{ y: [0, -10, 0] }}
+      transition={{ duration: 3.5, repeat: Infinity }}
+    >
+      <polygon
+        points="120,30 180,90 120,150 60,90"
+        fill="#FFB703"
+        stroke="#F59E0B"
+        strokeWidth="4"
+      />
+      <polyline
+        points="120,150 110,170 100,160 90,175 80,165"
+        fill="none"
+        stroke="#2D9CDB"
+        strokeWidth="4"
+      />
+      <circle cx="60" cy="90" r="6" fill="#9B5DE5" />
     </motion.svg>
   );
 }
@@ -108,7 +146,8 @@ const slides: Slide[] = [
 
 export default function HeroCarousel() {
   const [idx, setIdx] = useState(0);
-  const go = (n: number) => setIdx((p) => (p + n + slides.length) % slides.length);
+  const go = (n: number) =>
+    setIdx((p) => (p + n + slides.length) % slides.length);
   useEffect(() => {
     const id = setInterval(() => go(1), 6000);
     return () => clearInterval(id);
@@ -118,31 +157,60 @@ export default function HeroCarousel() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-hero" />
-      <div className={`absolute inset-0 -z-10 bg-gradient-to-br ${active.bg}`} />
+      <div
+        className={`absolute inset-0 -z-10 bg-gradient-to-br ${active.bg}`}
+      />
       <div className="container mx-auto px-4 pt-12 pb-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <AnimatePresence mode="wait">
-            <motion.div key={active.id + "text"} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.4 }}>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-primary shadow ring-1 ring-primary/20">#1 Kids School in Odisha</div>
+            <motion.div
+              key={active.id + "text"}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-primary shadow ring-1 ring-primary/20">
+                #1 Kids School in Odisha
+              </div>
               <h1 className="mt-4 text-4xl md:text-6xl font-extrabold font-display leading-[1.05] tracking-tight">
-                <span className="headline-gradient">{active.titleTop}</span><br />
+                <span className="headline-gradient">{active.titleTop}</span>
+                <br />
                 <span className="text-slate-800">{active.titleBottom}</span>
               </h1>
               <div className="mt-6 flex flex-wrap gap-3">
                 {active.ctas?.map((c) => (
-                  <Link key={c.label} to={c.to} className="btn-gradient text-base font-bold">{c.label}</Link>
+                  <Link
+                    key={c.label}
+                    to={c.to}
+                    className="btn-gradient text-base font-bold"
+                  >
+                    {c.label}
+                  </Link>
                 ))}
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 {active.stats.map((s, i) => (
-                  <CountBubble key={s.label} value={s.value} label={s.label} delay={i * 0.1} />
+                  <CountBubble
+                    key={s.label}
+                    value={s.value}
+                    label={s.label}
+                    delay={i * 0.1}
+                  />
                 ))}
               </div>
             </motion.div>
           </AnimatePresence>
 
           <AnimatePresence mode="wait">
-            <motion.div key={active.id + "art"} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: 0.4 }} className="relative grid place-items-center">
+            <motion.div
+              key={active.id + "art"}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.4 }}
+              className="relative grid place-items-center"
+            >
               <active.Mascot />
             </motion.div>
           </AnimatePresence>
@@ -151,12 +219,31 @@ export default function HeroCarousel() {
         <div className="mt-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
             {slides.map((s, i) => (
-              <button key={s.id} aria-label={`Go to slide ${i + 1}`} onClick={() => setIdx(i)} className={`h-2.5 w-2.5 rounded-full transition-all ${idx === i ? "bg-primary w-6" : "bg-slate-300 hover:bg-slate-400"}`} />
+              <button
+                key={s.id}
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => setIdx(i)}
+                className={`h-2.5 w-2.5 rounded-full transition-all ${idx === i ? "bg-primary w-6" : "bg-slate-300 hover:bg-slate-400"}`}
+              />
             ))}
           </div>
           <div className="flex gap-2">
-            <button aria-label="Previous" onClick={() => go(-1)} className="rounded-full p-3 bg-white/80 ring-1 ring-border hover:bg-white shadow"> <ChevronLeft className="h-5 w-5"/> </button>
-            <button aria-label="Next" onClick={() => go(1)} className="rounded-full p-3 bg-white/80 ring-1 ring-border hover:bg-white shadow"> <ChevronRight className="h-5 w-5"/> </button>
+            <button
+              aria-label="Previous"
+              onClick={() => go(-1)}
+              className="rounded-full p-3 bg-white/80 ring-1 ring-border hover:bg-white shadow"
+            >
+              {" "}
+              <ChevronLeft className="h-5 w-5" />{" "}
+            </button>
+            <button
+              aria-label="Next"
+              onClick={() => go(1)}
+              className="rounded-full p-3 bg-white/80 ring-1 ring-border hover:bg-white shadow"
+            >
+              {" "}
+              <ChevronRight className="h-5 w-5" />{" "}
+            </button>
           </div>
         </div>
       </div>
