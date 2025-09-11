@@ -81,7 +81,7 @@ export default function AwardModal({ open, onClose, imageSrc, heading = "Odishaâ
                     </svg>
                   </div>
                 )}
-                <h2 id="award-heading" className="mt-6 font-display text-2xl md:text-3xl font-extrabold">{heading}</h2>
+                <EmphasizedHeading text={heading} />
                 <div className="mt-1 text-[#FBBF24] font-semibold">{subheading}</div>
                 <p id="award-desc" className="mt-2 text-sm md:text-base text-white/80">
                   {supporting.split("TIMES OF INDIA")[0]}
