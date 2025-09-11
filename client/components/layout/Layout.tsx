@@ -33,6 +33,7 @@ const navModel = [
 export default function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
+  const [awardOpen, setAwardOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
