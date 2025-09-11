@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Sparkles from "./Sparkles";
+import { EmphasizedHeading } from "./AwardModal.helpers";
 
 export interface AwardModalProps {
   open: boolean;
