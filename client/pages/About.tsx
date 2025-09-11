@@ -93,10 +93,12 @@ function ChairDirector() {
       <div className="grid gap-6 md:grid-cols-2">
         <FlipCard
           name="Chairman’s Message"
+          photo="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fd3d4d84ad92947b08a3d91411fd8a979?format=webp&width=200"
           text="Preschool is the first impression a child gets of schooling. At Ankuram Kids Pre-school, we create a healthy, creative, and vibrant atmosphere, engaging each child in a playful, nurturing way. Beyond personal interaction, digital media like animations, infographics, videos, and interactive games augment the learning process, supporting growth in both academics and social behavior. A strong, fun, and safe environment is our foundation."
         />
         <FlipCard
           name="Director’s Message"
+          photo="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fd3d4d84ad92947b08a3d91411fd8a979?format=webp&width=200"
           text="Welcome to Ankuram Kids—a place where the seeds of knowledge are planted with care. Our commitment is to early education, ensuring every child feels secure, supported, and excited to learn, helping them become well-rounded individuals."
         />
       </div>
@@ -104,18 +106,21 @@ function ChairDirector() {
   );
 }
 
-function FlipCard({ name, text }: { name: string; text: string }) {
+function FlipCard({ name, text, photo }: { name: string; text: string; photo?: string }) {
   return (
     <div className="[perspective:1000px]">
-      <div className="group relative h-full min-h-[220px] w-full rounded-2xl border border-border bg-white shadow-sm transition-transform duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+      <div className="group relative h-full min-h-[260px] w-full rounded-2xl border border-border bg-white shadow-sm transition-transform duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
         <div className="absolute inset-0 p-6 [backface-visibility:hidden]">
-          <div className="font-hand text-2xl">“</div>
-          <div className="font-display text-xl font-bold underline decoration-wavy decoration-accent">{name}</div>
-          <div className="mt-2 text-slate-600">Hover to read →</div>
+          <div className="flex items-center gap-3">
+            {photo && <img src={photo} alt="Profile" className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" />}
+            <div>
+              <div className="font-display text-xl font-bold underline decoration-wavy decoration-accent">{name}</div>
+              <div className="text-slate-600">Hover to read →</div>
+            </div>
+          </div>
         </div>
         <div className="absolute inset-0 p-6 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-          <div className="font-hand text-2xl">"</div>
-          <p className="mt-2 leading-relaxed">{text}</p>
+          <p className="leading-relaxed">{text}</p>
         </div>
       </div>
     </div>
