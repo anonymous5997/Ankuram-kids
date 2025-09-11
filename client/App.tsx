@@ -74,4 +74,15 @@ const App = () => (
   </QueryClientProvider>
 );
 
-createRoot(document.getElementById("root")!).render(<App />);
+const container = document.getElementById("root")!;
+const existing = (window as any).__ankuram_root as ReturnType<typeof createRoot> | undefined;
+const root = existing ?? ((window as any).__ankuram_root = createRoot(container));
+root.render(<App />);
+
+if (import.meta && (import.meta as any).hot) {
+  (import.meta as any).hot.dispose(() => {
+    // Keep root for fast refresh; unmount to avoid memory leaks
+    root.unmount();
+    (window as any).__ankuram_root = undefined;
+  });
+}
