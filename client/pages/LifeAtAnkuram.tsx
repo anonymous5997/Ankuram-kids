@@ -17,9 +17,14 @@ const images = [
 const videoUrl =
   "https://cdn.builder.io/o/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fe2769502f59c42c495f2b442f1a91b5b?alt=media&token=d30f9ffc-cda9-4313-8c0c-81b1a37d3223&apiKey=ca48bdd83f664eed8f79c5ce34142229";
 
-function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+function SectionHeader({ title, subtitle, overline }: { title: string; subtitle?: string; overline?: string }) {
   return (
     <div className="text-center max-w-3xl mx-auto">
+      {overline && (
+        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-xs uppercase tracking-widest text-primary font-semibold">
+          {overline}
+        </motion.div>
+      )}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
