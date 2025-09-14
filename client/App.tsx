@@ -18,6 +18,9 @@ import LifeAtAnkuram from "./pages/LifeAtAnkuram";
 import NttTraining from "./pages/NttTraining";
 import Curriculum from "./pages/Curriculum";
 import OnsiteDaycare from "./pages/OnsiteDaycare";
+import Faqs from "./pages/Faqs";
+import CentreLocator from "./pages/CentreLocator";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -47,17 +50,11 @@ const App = () => (
               element={<Placeholder title="Corporate Tie-ups" />}
             />
             <Route path="admissions" element={<Admissions />} />
-            <Route
-              path="centre-locator"
-              element={<Placeholder title="Centre Locator" />}
-            />
+            <Route path="centre-locator" element={<CentreLocator />} />
             <Route path="ntt-training" element={<NttTraining />} />
             <Route path="franchise" element={<Franchise />} />
-            <Route
-              path="contact"
-              element={<Placeholder title="Contact Us" />}
-            />
-            <Route path="faqs" element={<Placeholder title="FAQs" />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="faqs" element={<Faqs />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
