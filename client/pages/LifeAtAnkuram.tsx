@@ -55,8 +55,9 @@ export default function LifeAtAnkuram() {
       <div className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-emerald-50 to-amber-50">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <SectionHeader
-            title="Life at Ankuram Kids"
-            subtitle="A joyful place where curiosity blossoms, friendships flourish, and confident learners take root."
+            overline="Life at Ankuram Kids"
+            title="Together, we play, learn and grow"
+            subtitle="We foster steady growth and multi‑faceted development for ages 2–6 through thoughtfully designed preschool activities."
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
