@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, animate } from "framer-motion";
 import {
@@ -10,7 +10,7 @@ import {
   Laptop,
   School,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import React,  { useEffect, useState } from "react";
 import HeroCarousel from "@/components/sections/HeroCarousel";
 
 const features = [
