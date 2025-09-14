@@ -1,4 +1,8 @@
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Dumbbell, Shield, Palette } from "lucide-react";
 
 const images = [
   "https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2F23bd1f4e1b954e618b2643e525ada631?format=webp&width=800",
@@ -160,6 +164,67 @@ export default function LifeAtAnkuram() {
             </p>
             <a href="/admissions" className="btn-gradient inline-flex mt-4 font-bold">Enroll Now</a>
           </div>
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="rounded-2xl p-6 bg-white border border-border shadow-sm">
+            <div className="flex items-center gap-2 text-xl font-extrabold font-display"><Dumbbell className="w-5 h-5 text-primary" /> Ankuram Kids Active Club</div>
+            <p className="mt-2 text-slate-700">A sports and physical development curriculum specially crafted for preschoolers aged 3–6 years.</p>
+            <ul className="mt-3 space-y-2 text-slate-700 list-disc pl-5">
+              <li>Builds core strength, balance, and coordination</li>
+              <li>Encourages teamwork, confidence, and sportsmanship</li>
+              <li>Fun circuits, yoga, rhythm, and movement games</li>
+            </ul>
+            <Button asChild className="btn-gradient font-bold mt-4"><a href="/admissions">Join the Active Club</a></Button>
+          </div>
+          <div className="rounded-2xl overflow-hidden bg-white border border-border shadow-sm">
+            <img src={images[0]} alt="Active Club at Ankuram Kids" className="w-full h-80 object-cover" />
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="rounded-2xl p-6 bg-gradient-to-br from-emerald-50 via-white to-amber-50 border border-border">
+            <div className="flex items-center gap-2 text-xl font-extrabold font-display"><Shield className="w-5 h-5 text-emerald-600" /> Safe, Child‑Centric Infrastructure</div>
+            <ul className="mt-3 space-y-2 text-slate-700 list-disc pl-5">
+              <li>CCTV, hygiene‑first practices, and restricted entry</li>
+              <li>Ergonomic, colourful classrooms that invite exploration</li>
+              <li>Quality teaching and learning aids complement our curriculum</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl p-6 bg-white border border-border shadow-sm">
+            <div className="flex items-center gap-2 text-xl font-extrabold font-display"><Palette className="w-5 h-5 text-amber-600" /> Designed for all‑round growth</div>
+            <p className="mt-2 text-slate-700">A thoughtful blend of style, aesthetics, reliability, and functionality ensures children feel joyful, safe, and inspired every day.</p>
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              {images.slice(7,10).map((src) => (
+                <img key={src} src={src} alt="Ankuram infrastructure" className="h-24 w-full object-cover rounded-lg" />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-16 pb-24">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-8">
+          <div className="rounded-2xl p-6 bg-white border border-border shadow-sm">
+            <div className="text-xl font-extrabold font-display">Quick Contact</div>
+            <ul className="mt-2 text-slate-700 space-y-1">
+              <li>Phone: 8660307204 / 7735889953 / 7848904465</li>
+              <li>Email: info@ankuramkids.com</li>
+              <li>Location: Kalinga Vihar, Bhubaneswar</li>
+            </ul>
+            <Button asChild className="btn-gradient font-bold mt-4"><a href="/admissions">Visit Ankuram Kids</a></Button>
+          </div>
+          <form onSubmit={(e)=>{e.preventDefault();}} className="rounded-2xl p-6 bg-white border border-border shadow-sm grid gap-3">
+            <div className="text-xl font-extrabold font-display">Send a quick inquiry</div>
+            <Input placeholder="Your name" required />
+            <Input placeholder="Phone number" required />
+            <Textarea rows={4} placeholder="How can we help?" required />
+            <Button type="submit" className="btn-gradient font-bold">Send Inquiry</Button>
+          </form>
         </motion.div>
       </div>
     </div>
