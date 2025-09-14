@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { motion, useMotionValue, animate } from "framer-motion";
+import { Brain, ShieldCheck, Users, Sparkles, Quote, Laptop, School } from "lucide-react";
 import HeroCarousel from "@/components/sections/HeroCarousel";
 
 const features = [
