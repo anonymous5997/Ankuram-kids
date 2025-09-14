@@ -104,16 +104,16 @@ export default function LifeAtAnkuram() {
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
               {
-                t: "Playful Learning",
-                d: "Hands-on, multi-sensory experiences that spark curiosity and build strong foundations in literacy, numeracy, and life skills.",
+                t: "Ankuram Kids Active Club",
+                d: "Sports and physical development program for ages 3–6 to build fitness, coordination, teamwork, and joy.",
               },
               {
                 t: "Caring Mentors",
                 d: "Experienced, warm teachers who nurture every child’s unique potential with patience, encouragement, and positive guidance.",
               },
               {
-                t: "Safe & Happy Spaces",
-                d: "Bright, child-friendly classrooms with CCTV, hygiene-first practices, and joyful environments where children feel at home.",
+                t: "Safe, Child‑Centric Infrastructure",
+                d: "Bright, hygienic classrooms with CCTV, ergonomic furniture, and quality learning aids that complement our curriculum.",
               },
             ].map((c, i) => (
               <motion.div
