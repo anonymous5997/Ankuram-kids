@@ -14,6 +14,10 @@ import Admissions from "./pages/Admissions";
 import Franchise from "./pages/Franchise";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
+import LifeAtAnkuram from "./pages/LifeAtAnkuram";
+import NttTraining from "./pages/NttTraining";
+import Curriculum from "./pages/Curriculum";
+import OnsiteDaycare from "./pages/OnsiteDaycare";
 
 const queryClient = new QueryClient();
 
@@ -31,18 +35,9 @@ const App = () => (
               path="programs"
               element={<Placeholder title="Our Programs" />}
             />
-            <Route
-              path="curriculum"
-              element={<Placeholder title="Curriculum" />}
-            />
-            <Route
-              path="onsite-daycare"
-              element={<Placeholder title="Onsite Daycare" />}
-            />
-            <Route
-              path="life-at-ankuram"
-              element={<Placeholder title="Life at Ankuram Kids" />}
-            />
+            <Route path="curriculum" element={<Curriculum />} />
+            <Route path="onsite-daycare" element={<OnsiteDaycare />} />
+            <Route path="life-at-ankuram" element={<LifeAtAnkuram />} />
             <Route
               path="leadership-team"
               element={<Placeholder title="Leadership Team" />}
@@ -56,10 +51,7 @@ const App = () => (
               path="centre-locator"
               element={<Placeholder title="Centre Locator" />}
             />
-            <Route
-              path="ntt-training"
-              element={<Placeholder title="NTT Training" />}
-            />
+            <Route path="ntt-training" element={<NttTraining />} />
             <Route path="franchise" element={<Franchise />} />
             <Route
               path="contact"
