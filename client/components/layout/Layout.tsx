@@ -11,8 +11,8 @@ const navModel = [
     submenu: [
       { label: "Ankuram Kids Preschool", to: "/about" },
       { label: "Life at Ankuram", to: "/life-at-ankuram" },
-      { label: "Leadership Team", to: "/leadership-team" },
-      { label: "Corporate Tie-ups", to: "/corporate-tieups" },
+      // { label: "Leadership Team", to: "/leadership-team" },
+      // { label: "Corporate Tie-ups", to: "/corporate-tieups" },
     ],
   },
   { label: "Curriculum", to: "/curriculum" },
@@ -219,11 +219,14 @@ export default function Layout() {
       <footer className="mt-16 bg-slate-50 border-t border-border">
         <div className="container mx-auto px-4 py-10 grid gap-8 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
-              <img src="/ankuram-favicon.svg" className="h-10 w-10" />
+            <div className="flex flex-col items-start md:items-start">
+              <img src="/ankuram-kids-logo.png" 
+              className="hh-66 w-36 mb-2 rounded-md shadow" 
+              alt="Ankuram Kids"
+               />
               <div>
-                <div className="font-extrabold font-display">ANKURAM KIDS</div>
-                <div className="text-xs text-slate-500">
+                <div className="font-extrabold font-display text-lg ">ANKURAM KIDS</div>
+                <div className="text-xs text-slate-500 mb-2">
                   Where Little Minds Grow Big Dreams
                 </div>
               </div>
@@ -249,11 +252,11 @@ export default function Layout() {
             <div className="font-semibold mb-2">Get in touch</div>
             <ul className="space-y-2 text-sm text-slate-600">
               <li>info@ankuramkids.com</li>
-              <li>+91-00000-00000</li>
+              <li>+91-8660307204</li>
               <li>Odisha, India</li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <div className="font-semibold mb-2">Apply</div>
             <Link to="/admissions" className="btn-gradient inline-block">
               Apply Now
@@ -261,7 +264,7 @@ export default function Layout() {
             <div className="mt-3 text-xs text-slate-500">
               NTT Training • Franchise Opportunities
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="border-t border-border py-4 text-center text-xs text-slate-500">
           © {new Date().getFullYear()} ANKURAM KIDS. All rights reserved.

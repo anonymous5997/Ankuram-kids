@@ -1,251 +1,169 @@
-import { useEffect, useMemo, useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  animate,
-} from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import animationData from "./ankuram_kids_lottie.json"; // Replace with your Lottie file
 
-interface Slide {
-  id: number;
-  titleTop: string;
-  titleBottom: string;
-  ctas?: { label: string; to: string }[];
-  Mascot: () => JSX.Element;
-  bg?: string;
-  stats: { label: string; value: number }[];
-}
-
-function useCount(to: number, duration = 1.2) {
-  const v = useMotionValue(0);
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    const controls = animate(v, to, { duration, ease: "easeOut" });
-    const unsub = v.on("change", (latest) => setVal(Math.round(latest)));
-    return () => {
-      controls.stop();
-      unsub();
-    };
-  }, [to, duration]);
-  return val;
-}
-
-function CountBubble({
-  value,
-  label,
-  delay = 0,
-}: {
-  value: number;
-  label: string;
-  delay?: number;
-}) {
-  const displayed = useCount(value);
-  return (
-    <motion.div
-      initial={{ scale: 0.6, opacity: 0, y: 20 }}
-      whileInView={{ scale: 1, opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ type: "spring", bounce: 0.4, delay }}
-      className="rounded-full bg-white/90 px-4 py-2 shadow ring-1 ring-border flex items-center gap-2"
-    >
-      <span className="text-lg font-extrabold text-primary">{displayed}</span>
-      <span className="text-sm font-semibold text-slate-700">{label}</span>
-    </motion.div>
-  );
-}
-
-function MascotSwing() {
-  return (
-    <motion.svg
-      viewBox="0 0 200 200"
-      className="w-[80%] max-w-[420px]"
-      initial={{ rotate: -4 }}
-      animate={{ rotate: [-6, 6, -6] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <defs>
-        <linearGradient id="g1" x1="0" x2="1">
-          <stop offset="0%" stopColor="#2D9CDB" />
-          <stop offset="100%" stopColor="#9B5DE5" />
-        </linearGradient>
-      </defs>
-      <g>
-        <path d="M100 20 v30" stroke="#444" strokeWidth="3" />
-        <g>
-          <circle cx="100" cy="60" r="22" fill="#FFD6E7" />
-          <rect x="70" y="80" width="60" height="44" rx="10" fill="url(#g1)" />
-          <rect x="80" y="124" width="40" height="36" rx="10" fill="#FFB703" />
-        </g>
-      </g>
-    </motion.svg>
-  );
-}
-
-function MascotKite() {
-  return (
-    <motion.svg
-      viewBox="0 0 240 200"
-      className="w-[80%] max-w-[420px]"
-      initial={{ y: 0 }}
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 3.5, repeat: Infinity }}
-    >
-      <polygon
-        points="120,30 180,90 120,150 60,90"
-        fill="#FFB703"
-        stroke="#F59E0B"
-        strokeWidth="4"
-      />
-      <polyline
-        points="120,150 110,170 100,160 90,175 80,165"
-        fill="none"
-        stroke="#2D9CDB"
-        strokeWidth="4"
-      />
-      <circle cx="60" cy="90" r="6" fill="#9B5DE5" />
-    </motion.svg>
-  );
-}
-
-const slides: Slide[] = [
+const slides = [
   {
     id: 1,
-    titleTop: "Where Little Minds",
-    titleBottom: "Grow Big Dreams",
-    Mascot: MascotSwing,
-    bg: "from-primary/10 to-accent/10",
-    ctas: [
-      { label: "Apply Now", to: "/admissions" },
-      { label: "Franchise", to: "/franchise" },
+    titleLines: [
+      "ANKURAM KIDS",
+      "where young hearts",
+      "learn & blossom",
     ],
+    tagline: "A joyful preschool experience that nurtures growth, creativity and confidence.",
+    media: "/Ankuram2.jpg",
+    bg: "from-[#4FC3F7] via-[#81C784] to-[#FF8A65]",
     stats: [
-      { label: "Students", value: 500 },
-      { label: "Centres", value: 4 },
-      { label: "Awards", value: 12 },
+      { label: "Centres", value: 5 },
+      { label: "Happy Kids", value: 800 },
+      { label: "Teachers", value: 60 },
     ],
   },
   {
     id: 2,
-    titleTop: "Play. Learn.",
-    titleBottom: "Shine Together.",
-    Mascot: MascotKite,
-    bg: "from-accent/10 to-primary/10",
-    ctas: [
-      { label: "NTT Training", to: "/ntt-training" },
-      { label: "Programs", to: "/programs" },
+    titleLines: [
+      "Play",
+      "Learn",
+      "Grow Together",
     ],
+    tagline: "Every day is an adventure in learning through play & discovery.",
+    media: "/Ankuram1.jpg",
+    bg: "from-[#FFB74D] via-[#4DD0E1] to-[#A1887F]",
     stats: [
-      { label: "Activities", value: 150 },
-      { label: "Teachers", value: 30 },
+      { label: "Activities", value: 120 },
       { label: "Years", value: 3 },
+      { label: "Parents Loved Us", value: 150 },
     ],
   },
 ];
 
-export default function HeroCarousel() {
-  const [idx, setIdx] = useState(0);
-  const go = (n: number) =>
-    setIdx((p) => (p + n + slides.length) % slides.length);
+export default function HeroAnkuram() {
+  const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => go(1), 6000);
-    return () => clearInterval(id);
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % slides.length);
+    }, 8000);
+    return () => clearInterval(interval);
   }, []);
-  const active = slides[idx];
+  const active = slides[activeIndex];
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-hero" />
-      <div
-        className={`absolute inset-0 -z-10 bg-gradient-to-br ${active.bg}`}
-      />
-      <div className="container mx-auto px-4 pt-12 pb-16">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <AnimatePresence mode="wait">
+    <section className="relative h-screen w-full overflow-hidden flex items-center">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active.id}
+          className={`absolute inset-0 h-full w-full bg-gradient-to-br ${active.bg}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Floating playful shapes */}
+          <motion.div
+            className="absolute top-10 left-10 w-16 h-16 bg-pink-300/30 rounded-full blur-lg z-10"
+            animate={{ y: [0, -20, 0] }}
+            transition={{ repeat: Infinity, duration: 5 }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-24 w-24 h-24 bg-yellow-200/40 rounded-2xl rotate-12 blur-lg z-10"
+            animate={{ rotate: [0, 15, -15, 0] }}
+            transition={{ repeat: Infinity, duration: 6 }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/3 w-20 h-20 bg-blue-200/60 rounded-full blur-md z-10"
+            animate={{ x: [0, 30, -20, 0] }}
+            transition={{ repeat: Infinity, duration: 7 }}
+          />
+          <div className="relative container mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-between gap-8 pt-24">
+            {/* Left Text & Stats */}
             <motion.div
-              key={active.id + "text"}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4 }}
+              className="flex-1 max-w-2xl space-y-6 text-white z-20"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-primary shadow ring-1 ring-primary/20">
-                #1 Kids School in Odisha
-              </div>
-              <h1 className="mt-4 text-4xl md:text-6xl font-extrabold font-display leading-[1.05] tracking-tight">
-                <span className="headline-gradient">{active.titleTop}</span>
-                <br />
-                <span className="text-slate-800">{active.titleBottom}</span>
-              </h1>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {active.ctas?.map((c) => (
-                  <Link
-                    key={c.label}
-                    to={c.to}
-                    className="btn-gradient text-base font-bold"
-                  >
-                    {c.label}
-                  </Link>
+              <div className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
+                {active.titleLines.map((line, i) => (
+                  <div key={i} className="mb-2">{line}</div>
                 ))}
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <p className="text-lg md:text-xl text-white/90">
+                {active.tagline}
+              </p>
+              <div className="flex space-x-4 mt-4">
+                <Link
+                  to="/admissions"
+                  className="px-8 py-3 bg-white text-[#4FC3F7] font-bold rounded-full shadow-lg hover:bg-gray-100 transition"
+                >
+                  Admissions Open
+                </Link>
+                <Link
+                  to="/about"
+                  className="px-8 py-3 bg-white/70 text-white font-bold rounded-full shadow-lg hover:bg-white/90 transition"
+                >
+                  Learn More
+                </Link>
+              </div>
+              {/* Stats */}
+              <div className="mt-8 flex space-x-8">
                 {active.stats.map((s, i) => (
-                  <CountBubble
+                  <motion.div
                     key={s.label}
-                    value={s.value}
-                    label={s.label}
-                    delay={i * 0.1}
-                  />
+                    className="flex flex-col items-center"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.3 + i * 0.2, duration: 0.8 }}
+                  >
+                    <div className="text-4xl font-extrabold">{s.value}</div>
+                    <div className="text-sm uppercase">{s.label}</div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
+            {/* Right Media & Animation */}
             <motion.div
-              key={active.id + "art"}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.4 }}
-              className="relative grid place-items-center"
+              className="flex-1 flex flex-col items-center md:justify-end z-20"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
             >
-              <active.Mascot />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="mt-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {slides.map((s, i) => (
-              <button
-                key={s.id}
-                aria-label={`Go to slide ${i + 1}`}
-                onClick={() => setIdx(i)}
-                className={`h-2.5 w-2.5 rounded-full transition-all ${idx === i ? "bg-primary w-6" : "bg-slate-300 hover:bg-slate-400"}`}
+              <img
+                src={active.media}
+                alt="Ankuram Kids"
+                className="w-80 md:w-[500px] rounded-2xl shadow-2xl object-cover mb-10 border-4 border-white/80"
               />
-            ))}
+              {/* Lottie Animation - replace animationData if needed */}
+              <div className="w-48 h-48">
+                <Lottie animationData={animationData} loop={true} />
+              </div>
+            </motion.div>
           </div>
-          <div className="flex gap-2">
-            <button
-              aria-label="Previous"
-              onClick={() => go(-1)}
-              className="rounded-full p-3 bg-white/80 ring-1 ring-border hover:bg-white shadow"
-            >
-              {" "}
-              <ChevronLeft className="h-5 w-5" />{" "}
-            </button>
-            <button
-              aria-label="Next"
-              onClick={() => go(1)}
-              className="rounded-full p-3 bg-white/80 ring-1 ring-border hover:bg-white shadow"
-            >
-              {" "}
-              <ChevronRight className="h-5 w-5" />{" "}
-            </button>
-          </div>
-        </div>
+        </motion.div>
+      </AnimatePresence>
+      {/* Dots Navigation */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-30">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveIndex(i)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              i === activeIndex ? "bg-white scale-125 shadow-lg" : "bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+      {/* Logo & Tagline overlay */}
+      <div className="absolute top-28 left-8 flex flex-col items-start z-40">
+        {/* <img
+          src="/ankuram-kids-logo.png"
+          alt="Ankuram Kids Logo"
+          className="w-48 h-24 mb-2 drop-shadow-xl bg-white/60 rounded-xl p-2 backdrop-blur"
+        /> */}
+        <span className="bg-white/80 text-[#4FC3F7] px-4 py-2 rounded-full font-bold text-lg shadow-md">
+          A BEST PLACE TO NURTURE THE LITTLE MINDS
+        </span>
       </div>
     </section>
   );

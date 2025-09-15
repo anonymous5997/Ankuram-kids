@@ -17,8 +17,8 @@ export default function AwardModal({
   onClose,
   imageSrc,
   heading = "Odisha’s No. 1 School",
-  subheading = "Times School Ranking Survey Odisha 2023",
-  supporting = "Awarded for the 4th Consecutive Year by TIMES OF INDIA",
+  subheading = "Ankuram Kids",
+  supporting = "Where Little Minds ,Grow Big Dreams",
 }: AwardModalProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const prevFocus = useRef<Element | null>(null);
@@ -114,16 +114,17 @@ export default function AwardModal({
                 <div className="mt-1 text-[#FBBF24] font-semibold">
                   {subheading}
                 </div>
-                <p
+                {/* <p
                   id="award-desc"
                   className="mt-2 text-sm md:text-base text-white/80"
                 >
-                  {supporting.split("TIMES OF INDIA")[0]}
+                  {supporting.split("")[0]}
                   <span className="text-red-400 font-semibold">
-                    TIMES OF INDIA
+                  Where Little Minds ,Grow Big Dreams
+
                   </span>
-                  {supporting.includes("TIMES OF INDIA") ? "" : null}
-                </p>
+                  {supporting.includes("") ? "" : null}
+                </p> */}
               </div>
             </motion.div>
           </div>

@@ -53,7 +53,7 @@ export default function About() {
       <Curriculum />
       <Fees />
       <Golden />
-      <Gallery />
+      {/* <Gallery /> */}
     </div>
   );
 }
