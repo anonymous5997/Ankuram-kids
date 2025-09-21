@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const address =
-  "Kalinga Vihar, HIG 19 K 6, Kalinga Vihar LIG, Patrapada, Bhubaneswar, Odisha 751019";
+  "Ankuram Kids , HIG-8, k-6 , Pin-751019 ,Kalinga Vihar, Bhubaneswar , Odisha";
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
 export default function CentreLocator() {
   return (
@@ -45,7 +46,7 @@ export default function CentreLocator() {
             </div>
             <p className="mt-2 text-slate-700">{address}</p>
             <ul className="mt-4 text-slate-700 text-sm space-y-1">
-              <li>Phone: 8660307204</li>
+              <li>Phone:+91 8660307204</li>
               <li>Email: info@ankuramkids.com</li>
             </ul>
             <div className="mt-6 flex gap-3">
@@ -53,7 +54,13 @@ export default function CentreLocator() {
                 <a href="/contact">Contact Us</a>
               </Button>
               <Button asChild variant="outline">
-                <a href="/admissions">Visit the Centre</a>
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Visit the Centre
+                </a>
               </Button>
             </div>
           </div>

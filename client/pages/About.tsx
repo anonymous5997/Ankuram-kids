@@ -152,12 +152,12 @@ function ChairDirector() {
       <div className="grid gap-6 md:grid-cols-2">
         <FlipCard
           name="Chairman’s Message"
-          photo="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fd3d4d84ad92947b08a3d91411fd8a979?format=webp&width=200"
+          photo="/Ankuram_chairman.jpeg"
           text="Preschool is the first impression a child gets of schooling. At Ankuram Kids Pre-school, we create a healthy, creative, and vibrant atmosphere, engaging each child in a playful, nurturing way. Beyond personal interaction, digital media like animations, infographics, videos, and interactive games augment the learning process, supporting growth in both academics and social behavior. A strong, fun, and safe environment is our foundation."
         />
         <FlipCard
           name="Director’s Message"
-          photo="https://cdn.builder.io/api/v1/image/assets%2Fca48bdd83f664eed8f79c5ce34142229%2Fd3d4d84ad92947b08a3d91411fd8a979?format=webp&width=200"
+          photo="/Ankuram_Director.jpeg"
           text="Welcome to Ankuram Kids—a place where the seeds of knowledge are planted with care. Our commitment is to early education, ensuring every child feels secure, supported, and excited to learn, helping them become well-rounded individuals."
         />
       </div>

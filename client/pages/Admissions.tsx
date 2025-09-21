@@ -17,8 +17,7 @@ type FormValues = z.infer<typeof schema>;
 
 // Replace this with your actual deployed Apps Script Web App URL
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwDYZSc2q80hjnDLtfG2CROgl-b7hONlvTl57wOAvm-TFX0WxWXjLRMMQZOmQ04qmxJCQ/exec";
-
+  "https://script.google.com/macros/s/AKfycbz8_arI44vAi82ycrSPOWxDltN8nDZ7UpQ25GAwXgohJPA3pT0pBuxPzN7fcbKKK2-Ciw/exec";
 export default function Admissions() {
   const [step, setStep] = useState(1);
   const {

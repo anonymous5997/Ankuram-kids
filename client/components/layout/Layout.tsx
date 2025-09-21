@@ -225,7 +225,7 @@ export default function Layout() {
               alt="Ankuram Kids"
                />
               <div>
-                <div className="font-extrabold font-display text-lg ">ANKURAM KIDS</div>
+                <div className="font-extrabold font-display text-lg ">A unit of Ekagrata Shiksha Foundation</div>
                 <div className="text-xs text-slate-500 mb-2">
                   Where Little Minds Grow Big Dreams
                 </div>
@@ -253,7 +253,7 @@ export default function Layout() {
             <ul className="space-y-2 text-sm text-slate-600">
               <li>info@ankuramkids.com</li>
               <li>+91-8660307204</li>
-              <li>Odisha, India</li>
+              <li>ANKURAM KIDS ,  HIG-8, k-6 Pin-751019 , Kalinga Vihar, Bhubaneswar Odisha</li>
             </ul>
           </div>
           {/* <div>

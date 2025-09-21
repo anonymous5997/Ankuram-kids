@@ -53,7 +53,7 @@ export default function NttTraining() {
 
       // Replace with your deployed Apps Script URL
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwDYZSc2q80hjnDLtfG2CROgl-b7hONlvTl57wOAvm-TFX0WxWXjLRMMQZOmQ04qmxJCQ/exec",
+        "https://script.google.com/macros/s/AKfycbz8_arI44vAi82ycrSPOWxDltN8nDZ7UpQ25GAwXgohJPA3pT0pBuxPzN7fcbKKK2-Ciw/exec",
         {
           method: "POST",
           body: formData,
@@ -153,11 +153,11 @@ export default function NttTraining() {
               Authorized Centre
             </div>
             <p className="mt-2 text-slate-700">
-              Ankuram Kids, Kalinga Vihar, Bhubaneswar
+              ANKURAM KIDS , A unit of Ekagrata Shiksha Foundation , HIG-8, k-6 , Pin-751019 , Kalinga Vihar, Bhubaneswar , Odisha
             </p>
             <div className="mt-6 text-xl font-extrabold font-display">Contact</div>
             <p className="mt-2 text-slate-700">
-              8660307204, 7848904465
+              +91 8660307204, +91  7848904465
             </p>
           </motion.div>
           <motion.div

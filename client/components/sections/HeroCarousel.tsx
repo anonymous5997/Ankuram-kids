@@ -161,9 +161,9 @@ export default function HeroAnkuram() {
           alt="Ankuram Kids Logo"
           className="w-48 h-24 mb-2 drop-shadow-xl bg-white/60 rounded-xl p-2 backdrop-blur"
         /> */}
-        <span className="bg-white/80 text-[#4FC3F7] px-4 py-2 rounded-full font-bold text-lg shadow-md">
+        {/* <span className="bg-white/80 text-[#4FC3F7] px-4 py-1 rounded-full font-bold text-lg shadow-md">
           A BEST PLACE TO NURTURE THE LITTLE MINDS
-        </span>
+        </span> */}
       </div>
     </section>
   );

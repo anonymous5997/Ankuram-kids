@@ -23,7 +23,7 @@ const videoUrl =
 
 // Google Apps Script Web App URL
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwDYZSc2q80hjnDLtfG2CROgl-b7hONlvTl57wOAvm-TFX0WxWXjLRMMQZOmQ04qmxJCQ/exec";
+  "https://script.google.com/macros/s/AKfycbz8_arI44vAi82ycrSPOWxDltN8nDZ7UpQ25GAwXgohJPA3pT0pBuxPzN7fcbKKK2-Ciw/exec";
 
 function SectionHeader({
   title,
@@ -198,7 +198,7 @@ export default function LifeAtAnkuram() {
                 <ul className="mt-2 text-slate-700 space-y-1">
                   <li>Phone: 8660307204 / 7848904465</li>
                   <li>Email: info@ankuramkids.com</li>
-                  <li>Location: Kalinga Vihar, Bhubaneswar , Odisha</li>
+                  <li>Location: Ankuram Kids , HIG-8, k-6 ,Pin-751019 ,Kalinga Vihar, Bhubaneswar , Odisha</li>
                 </ul>
                 <Button asChild className="btn-gradient font-bold mt-4">
                   <a href="/admissions">Visit Ankuram Kids</a>
