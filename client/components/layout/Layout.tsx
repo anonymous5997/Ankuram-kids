@@ -251,7 +251,7 @@ export default function Layout() {
           <div>
             <div className="font-semibold mb-2">Get in touch</div>
             <ul className="space-y-2 text-sm text-slate-600">
-              <li>info@ankuramkids.com</li>
+              <li>info@ankuramkids.com , pandaminati635@gmail.com</li>
               <li>+91-8660307204</li>
               <li>ANKURAM KIDS ,  HIG-8, k-6 Pin-751019 , Kalinga Vihar, Bhubaneswar Odisha</li>
             </ul>

@@ -197,7 +197,7 @@ export default function LifeAtAnkuram() {
                 </div>
                 <ul className="mt-2 text-slate-700 space-y-1">
                   <li>Phone: 8660307204 / 7848904465</li>
-                  <li>Email: info@ankuramkids.com</li>
+                  <li>Email: info@ankuramkids.com , pandaminati635@gmail.com</li>
                   <li>Location: Ankuram Kids , HIG-8, k-6 ,Pin-751019 ,Kalinga Vihar, Bhubaneswar , Odisha</li>
                 </ul>
                 <Button asChild className="btn-gradient font-bold mt-4">

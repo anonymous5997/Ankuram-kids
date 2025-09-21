@@ -47,7 +47,7 @@ export default function CentreLocator() {
             <p className="mt-2 text-slate-700">{address}</p>
             <ul className="mt-4 text-slate-700 text-sm space-y-1">
               <li>Phone:+91 8660307204</li>
-              <li>Email: info@ankuramkids.com</li>
+              <li>Email: info@ankuramkids.com , pandaminati635@gmail.com</li>
             </ul>
             <div className="mt-6 flex gap-3">
               <Button asChild className="btn-gradient font-bold">
